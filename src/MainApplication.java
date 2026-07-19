@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 import java.util.List;
 
 public class MainApplication extends JFrame {

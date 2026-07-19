@@ -52,8 +52,8 @@ public class PayrollDAO {
     /**
      * Ek specific employee ID ke saare puraane payroll records fetch karta hai.
      */
-    public java.util.List<Payroll> getPayslipsByEmployeeId(int empId) {
-        java.util.List<Payroll> payslips = new java.util.ArrayList<>();
+    public List<Payroll> getPayslipsByEmployeeId(int empId) {
+        List<Payroll> payslips = new ArrayList<>();
 
         // Query: Sirf uss employee ke records laao
         String query = "SELECT * FROM Payroll WHERE emp_id = ?";
@@ -62,7 +62,7 @@ public class PayrollDAO {
              PreparedStatement pstmt = con.prepareStatement(query)) {
 
             pstmt.setInt(1, empId);
-            java.sql.ResultSet rs = pstmt.executeQuery();
+            ResultSet rs = pstmt.executeQuery();
 
             // Loop jab tak saare records milte hain
             while (rs.next()) {

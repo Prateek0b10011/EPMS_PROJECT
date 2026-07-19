@@ -6,11 +6,11 @@ public class DBConnection {
 
     // Yeh details humne MySQL install karte waqt set ki thi
     // Database ka naam 'epms_db' hai
-    private static final String URL = "jdbc:mysql://localhost:3306/epms_db";
+    private static final String URL = "jdbc:mysql://localhost:3307/epms_db";
     private static final String USER = "root"; // Aapka MySQL username
 
     // !! IMPORTANT: Yahan apna password daaliye !!
-    private static final String PASSWORD = "physcoviper@1234";
+    private static final String PASSWORD = "root";
 
     // Method jo connection establish karega
     public static Connection getConnection() {

@@ -1,0 +1,28 @@
+name: Infrastructure CI Pipeline
+
+# This tells GitHub to run the pipeline every time you push to the master or main branch
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
+
+jobs:
+  validate-infrastructure:
+    runs-on: ubuntu-latest # GitHub provides a free, temporary Linux server
+
+    steps:
+    # Step 1: Download your code onto the GitHub server
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    # Step 2: Check the syntax of your Docker Compose file
+    - name: Validate Docker Compose Configuration
+      run: docker-compose config -q
+
+    # Step 3: Test that the database can successfully build and start in the cloud
+    - name: Test Database Container Spin-Up
+      run: |
+        docker-compose up -d
+        sleep 10 # Give MySQL a moment to initialize
+        docker ps | grep epms-mysql
